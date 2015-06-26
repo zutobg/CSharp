@@ -6,35 +6,11 @@ class Find_Nth_Prime
 {
     static void Main()
     {
-        int maxPrime;
-        Console.Write("Enter the maximum number value (0 for default value - 9973): ");
-        int maxPrimeEntered = int.Parse(Console.ReadLine());
-        if (maxPrimeEntered == 0)
-        {
-            maxPrime = 9973;
-        }
-        else
-        {
-            maxPrime = maxPrimeEntered;
-        }
-
-        int primeIndex;
-        Console.Write("Enter the index to display(0 for maximum default value - 1229): ");
-        int primeIndexEntered = int.Parse(Console.ReadLine());
-        if (primeIndexEntered == 0)
-        {
-            primeIndex = 1229;
-        }
-        else
-        {
-            primeIndex = primeIndexEntered;
-        }
-
-        List<int> primeList = GetAllPrimesLessThan(maxPrime);
+        List<int> primeList = GetAllPrimesLessThan(MaxNumber());
 
         try
         {
-            Console.WriteLine(primeList[primeIndex - 1]);
+            Console.WriteLine(primeList[IndexPrime() - 1]);
         }
         catch (Exception)
         {
@@ -65,5 +41,35 @@ class Find_Nth_Prime
             }
         }
         return primes;
+    }
+    private static int MaxNumber()
+    {
+        int maxPrime;
+        Console.Write("Enter the maximum number value (0 for default value - 9973): ");
+        int maxPrimeEntered = int.Parse(Console.ReadLine());
+        if (maxPrimeEntered == 0)
+        {
+            maxPrime = 9973;
+        }
+        else
+        {
+            maxPrime = maxPrimeEntered;
+        }
+        return maxPrime;
+    }
+    private static int IndexPrime()
+    {
+        int primeIndex;
+        Console.Write("Enter the index to display(0 for maximum default value - 1229): ");
+        int primeIndexEntered = int.Parse(Console.ReadLine());
+        if (primeIndexEntered == 0)
+        {
+            primeIndex = 1229;
+        }
+        else
+        {
+            primeIndex = primeIndexEntered;
+        }
+        return primeIndex;
     }
 }
